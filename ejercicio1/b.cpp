@@ -1,12 +1,11 @@
 #include <iostream>
-#include "a.h"
 using namespace std;
 
 void imprimir_matriz(int** matriz, int n){
-    
+    for(int i = n*n; i > 0; i--){
+        int j = i / n;
+        int k = i % n;
+        cout << matriz[j][k] << endl;
+    }
 }
 
-int main(){
-    int** matriz = crear_matriz(4);
-    return 0;
-}

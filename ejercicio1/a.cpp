@@ -19,8 +19,4 @@ int** crear_matriz(int n){
 }
 //manejar con try catch si tenes la memoria necesaria
 
-// int main(){
-//     int** matriz = crear_matriz(2);
-//     cout << matriz[0][0] << endl;
-//     cout << matriz[1][0] << endl;
-// }
+
