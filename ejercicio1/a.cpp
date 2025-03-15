@@ -3,7 +3,7 @@ using namespace std;
 
 int** crear_matriz(int n){
     int** matriz = new int*[n];
-    for(int i; i < n; i++){
+    for(int i = 0; i < n; i++){
         matriz[i] = new int[n];
     }
 
@@ -18,5 +18,4 @@ int** crear_matriz(int n){
     return matriz;
 }
 //manejar con try catch si tenes la memoria necesaria
-
 
