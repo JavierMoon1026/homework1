@@ -31,7 +31,7 @@ void logMessage(string mensaje, string archivo, int linea){
 }
 
 void logMessage(string mensaje, string username){
-    string mensaje_completo = mensaje +  mensaje + " Usuario: " + username;
+    string mensaje_completo = mensaje + " Usuario: " + username;
     logMessage(mensaje_completo, NivelSeveridad::SECURITY);
 }
 

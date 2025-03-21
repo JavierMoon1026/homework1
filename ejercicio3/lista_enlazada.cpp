@@ -3,25 +3,14 @@
 #include "lista_enlazada.h"
 using namespace std;
 
-struct node{
-    int value;
-    shared_ptr<node> next;
-};
-
-struct list{
-    shared_ptr<node> head;
-    shared_ptr<node> tail;
-    size_t size;
-};
-
 shared_ptr<node> create_node(int value){
-    shared_ptr<node> new_node;
+    shared_ptr<node> new_node = make_shared<node>();
     new_node -> value = value;
     new_node -> next = nullptr;
     return new_node;
 }
 
-int push_front(list list, shared_ptr<node> node){
+int push_front(list& list, shared_ptr<node> node){
     if(!list.head){
         list.tail = node;
         list.head = node;
@@ -34,7 +23,7 @@ int push_front(list list, shared_ptr<node> node){
     return 0;
 }
 
-int push_back(list list, shared_ptr<node> node){
+int push_back(list& list, shared_ptr<node> node){
     if(!list.head){
         list.tail = node;
         list.head = node;
@@ -47,7 +36,7 @@ int push_back(list list, shared_ptr<node> node){
     return 0;
 }
 
-int insert(list list,shared_ptr<node> node, int pos){
+int insert(list& list,shared_ptr<node> node, int pos){
     if(pos <= 0) {
         push_front(list, node);
     } else if (pos >= list.size) {
@@ -63,7 +52,7 @@ int insert(list list,shared_ptr<node> node, int pos){
     return 0;
 }
 
-int erase(list list,shared_ptr<node> node, int pos){
+int erase(list& list, int pos){
     if(list.size == 0) return -1;
 
     if(pos <= 0) {
@@ -89,7 +78,7 @@ int erase(list list,shared_ptr<node> node, int pos){
     return 0;
 }
 
-void print_list(list list){
+void print_list(list& list){
     auto node = list.head;
     for (int i = 0; i < list.size; ++i){
         cout << node -> value << endl;
