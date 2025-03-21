@@ -1,4 +1,5 @@
 #include <iostream>
+#include "ejercicio1.h"
 using namespace std;
 
 void imprimir_matriz(int** matriz, int n){

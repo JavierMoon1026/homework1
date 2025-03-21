@@ -1,20 +1,23 @@
 #include <iostream>
-#include <string>
+#include <cstring>
 #include <chrono>
 using namespace std;
 
-bool miProcesoAMedir(string texto1, string texto2){
-
+constexpr bool miProcesoAMedir(const char* texto1, char* texto2, int index = 0){
+    if(strlen(texto1) != strlen(texto2)) return false;
+    if(index == (int)strlen(texto1)) return true;
+    if(texto1[index] != texto2[index]) return false;
+    return miProcesoAMedir(texto1, texto2, index + 1);
 }
 
 int main(){
     auto startTime = std::chrono::high_resolution_clock::now();
-    string texto1 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.1";
-    string texto2 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.1";
-    string texto3 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.2";
+    char* texto1 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.1";
+    char* texto2 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.1";
+    char* texto3 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.2";
     bool comp1 = miProcesoAMedir(texto1, texto2);
     bool comp2 = miProcesoAMedir(texto1, texto3);
-    int len = texto1.length();
+    int len = sizeof(texto1);
     cout << comp1 << endl;
     cout << comp2 << endl;
     auto endTime = std::chrono::high_resolution_clock::now();
@@ -22,4 +25,6 @@ int main(){
     endTime - startTime);
     cout << "miProcesoAMedir le tomó: " << elapsedTime.count() << "nanosegundos" << std::endl;
     return 0;
+
+
 }

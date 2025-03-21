@@ -1,5 +1,6 @@
 #include <iostream>
 #include <memory>
+#include "lista_enlazada.h"
 using namespace std;
 
 struct node{
@@ -47,13 +48,13 @@ int push_back(list list, shared_ptr<node> node){
 }
 
 int insert(list list,shared_ptr<node> node, int pos){
-    if (pos <= 0) {
+    if(pos <= 0) {
         push_front(list, node);
     } else if (pos >= list.size) {
         push_back(list, node);
     } else {
         auto previous_node = list.head;
-        for (int i = 0; i < pos - 1; ++i) {
+        for(int i = 0; i < pos - 1; ++i) {
             previous_node = previous_node -> next;
         }
         node -> next = previous_node -> next;
@@ -63,9 +64,9 @@ int insert(list list,shared_ptr<node> node, int pos){
 }
 
 int erase(list list,shared_ptr<node> node, int pos){
-    if (list.size == 0) return -1;
+    if(list.size == 0) return -1;
 
-    if (pos <= 0) {
+    if(pos <= 0) {
         list.head = list.head -> next;
         if (!list.head) {
             list.tail = nullptr;

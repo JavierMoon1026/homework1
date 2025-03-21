@@ -1,8 +1,7 @@
 #include <iostream>
 #include <fstream>
+#include "sistema_log.h"
 using namespace std;
-
-enum class NivelSeveridad{DEBUG, INFO, WARNING, ERROR, CRITICAL, SECURITY};
 
 void logMessage(string mensaje, NivelSeveridad nivel){
     ofstream logFile("log.txt", ios::app);
