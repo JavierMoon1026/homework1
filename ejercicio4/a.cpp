@@ -11,12 +11,13 @@ que facilita la resolucion del ejercicio.
 */
 bool miProcesoAMedir(string texto1, string texto2, int index = 0){
     if(texto1.length() != texto2.length()) return false;
-    if(index == texto1.length()) return true;
+    if(index == texto1.length()) return true; //caso base: se recorrio todo el texto
     if(texto1[index] != texto2[index]) return false;
     return miProcesoAMedir(texto1, texto2, index + 1);
 }
 
 int main(){
+    //se mide el tiempo que tarda en comparar los textos e imprimir el resultado
     auto startTime = std::chrono::high_resolution_clock::now();
     string texto1 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.1";
     string texto2 = "Utilice esté código y las modificaciones necesarias que crea conveniente para verificar cuanto tiempo toma la ejecución del código del ejercicio 4.1";

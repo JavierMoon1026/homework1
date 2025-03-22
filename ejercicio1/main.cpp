@@ -3,14 +3,13 @@
 using namespace std;
 
 int main(){
+    //se le pide al usuario ingresar el tamaño de la matriz
     cout << "Ingrese el tamaño de la matriz: " << endl;
     int n;
     cin >> n;
-    if(n < 2){
-        cout << "El tamaño debe ser mayor a 1";
-        return 1;
-    }
+    //se crea la matriz con tamaño n
     int** matriz = crear_matriz(n);
+    //se imprime la matriz
     imprimir_matriz(matriz, n);
 
     return 0;

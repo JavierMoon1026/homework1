@@ -3,6 +3,7 @@
 #include "lista_enlazada.h"
 using namespace std;
 
+//se crea un nodo
 shared_ptr<node> create_node(int value){
     shared_ptr<node> new_node = make_shared<node>();
     new_node -> value = value;
@@ -10,6 +11,7 @@ shared_ptr<node> create_node(int value){
     return new_node;
 }
 
+//se agrega un nodo al principio de la lista
 int push_front(list& list, shared_ptr<node> node){
     if(!list.head){
         list.tail = node;
@@ -23,6 +25,7 @@ int push_front(list& list, shared_ptr<node> node){
     return 0;
 }
 
+//se agrega un nodo al final de la lista
 int push_back(list& list, shared_ptr<node> node){
     if(!list.head){
         list.tail = node;
@@ -36,6 +39,7 @@ int push_back(list& list, shared_ptr<node> node){
     return 0;
 }
 
+//se inserta un nodo en la posicion pos
 int insert(list& list,shared_ptr<node> node, int pos){
     if(pos <= 0) {
         push_front(list, node);
@@ -52,6 +56,7 @@ int insert(list& list,shared_ptr<node> node, int pos){
     return 0;
 }
 
+//se elimina un nodo en la posicion pos
 int erase(list& list, int pos){
     if(list.size == 0) return -1;
 
@@ -78,6 +83,7 @@ int erase(list& list, int pos){
     return 0;
 }
 
+//se imprime toda la lista
 void print_list(list& list){
     auto node = list.head;
     for (int i = 0; i < list.size; ++i){
